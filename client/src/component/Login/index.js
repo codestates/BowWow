@@ -19,11 +19,12 @@ function Login({ setHasUserId, setIsLogedIn, loginHandler }) {
     axios
       .post(
         "http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/users/login",
+        //"http://localhost:4000/users/login",
         data,
-        { withCredentials: true }
+        { withCredentials: true, credentials: 'include' }
       )
       .then((res) => {
-
+        console.log("res123",res)
         // console.log("첫콘솔", res.data.data.accesstoken);
         // console.log("refresh", res.data.data.refreshtoken)
         // setHasAccessToken(res.data);
@@ -31,10 +32,10 @@ function Login({ setHasUserId, setIsLogedIn, loginHandler }) {
         // setIsLogedIn(res.data.data.userinfo.id);
         loginHandler(res.data.data.userinfo.id);
         setHasUserId(res.data.data.userinfo.id);
-        document.cookie = "accesstoken" + "=" + res.data.data.accesstoken;
-        document.cookie = "refreshtoken" + "=" + res.data.data.refreshtoken;
+       // document.cookie = "accesstoken" + "=" + res.data.data.accesstoken;
+        //document.cookie = "refreshtoken" + "=" + res.data.data.refreshtoken;
         // console.log(document.cookie.split(" "));
-        history.push("/");
+        history.push("/")
       })
       .catch((err) => {
         console.log("login에러", err);

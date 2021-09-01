@@ -43,58 +43,58 @@ const PostForm = ({ hasUserId, isLogedIn, setIsLogedIn }) => {
   const postHandler = useCallback(
     (e) => {
       e.preventDefault();
-      
-      axios
-        .get(
-          `http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/auth`,
-          {
-            headers: {
+      console.log("imageFile",imageFile)
+      console.log("image", e.target[0].files[0]);
+      // axios
+      //   .get(
+      //     `http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/auth`,
+      //     {
+      //       headers: {
 
-              accesstoken: document.cookie.split("accesstoken=")[1].split(";")[0],
-              refreshtoken: document.cookie.split("refreshtoken=")[1].split(";")[0],
+      //         accesstoken: document.cookie.split("accesstoken=")[1].split(";")[0],
+      //         refreshtoken: document.cookie.split("refreshtoken=")[1].split(";")[0],
 
-            },
-          }
-        )
-        .then((res) => {
+      //       },
+      //     }
+      //   )
+      //   .then((res) => {
 
-          console.log("postform/auth:", res.data.data.userinfo);
-          console.log("image", e.target[0].files[0]);
-          console.log("imagefile", imageFile);
+      //     console.log("postform/auth:", res.data.data.userinfo);
+      //     console.log("image", e.target[0].files[0]);
+      //     console.log("imagefile", imageFile);
 
-          const userdata = new FormData();
+      //     const userdata = new FormData();
 
-          userdata.append("title", title);
-          userdata.append("category", category);
-          userdata.append("date", date);
-          userdata.append("location", location);
-          userdata.append("input-image", imageFile[0]);
-          userdata.append("content", content);
-          userdata.append("mobile", mobile);
-          userdata.append("imgCheck", imgCheck);
-          userdata.append("userId", res.data.data.userinfo);
+      //     userdata.append("title", title);
+      //     userdata.append("category", category);
+      //     userdata.append("date", date);
+      //     userdata.append("location", location);
+      //     userdata.append("input-image", imageFile[0]);
+      //     userdata.append("content", content);
+      //     userdata.append("mobile", mobile);
+      //     userdata.append("imgCheck", imgCheck);
+      //     userdata.append("userId", res.data.data.userinfo);
 
-          axios
-            .post(
-              `http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/posts`,
-              userdata,
-              { headers: { "Content-Type": "multipart/form-data" } }
-            )
-            .then((res) => {
-              // console.log("포스트폼 작성 완료버튼", res.data.data);
-              alert("게시글이 작성되었습니다.");
-              window.location.replace("/");
-            })
-            .catch((err) => {
-              console.log(err);
-              alert("게시글 작성에 실패했습니다. 다시 시도해주세요.");
-            });
-        })
-        .catch((err) => {
-          console.log("auth에러:", err);
-        });
+      //     axios
+      //       .post(
+      //         `http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/posts`,
+      //         userdata,
+      //         { headers: { "Content-Type": "multipart/form-data" } }
+      //       )
+      //       .then((res) => {
+      //         // console.log("포스트폼 작성 완료버튼", res.data.data);
+      //         alert("게시글이 작성되었습니다.");
+      //         window.location.replace("/");
+      //       })
+      //       .catch((err) => {
+      //         console.log(err);
+      //         alert("게시글 작성에 실패했습니다. 다시 시도해주세요.");
+      //       });
+      //   })
+      //   .catch((err) => {
+      //     console.log("auth에러:", err);
+      //   });
     },
-
     [title, mobile, content]
   );
 
