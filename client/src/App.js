@@ -98,7 +98,7 @@ function App() {
     document.cookie = `accesstoken=${null}`;
     document.cookie = `refreshtoken=${null}`;
 
-    window.location.href = "http://localhost:3000";
+    window.location.href = "https://eteammerge.ga/";
   };
 
   return (
