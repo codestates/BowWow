@@ -25,8 +25,9 @@ function Login({ setIsLogedIn, loginHandler }) {
     return axios
       .post(
         "http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/users/login",
+        //"http://localhost:4000/users/login",
         data,
-        { withCredentials: true }
+        { withCredentials: true, credentials: 'include' }
       )
       .then((res) => {
         loginHandler();

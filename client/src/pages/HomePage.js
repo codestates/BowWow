@@ -73,6 +73,7 @@ function HomePage({
   //
   return (
     <>
+   
       <Main handleClickForService={handleClickForService} />
       <NavBar
         logoutHandler={logoutHandler}

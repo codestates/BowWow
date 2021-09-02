@@ -36,14 +36,17 @@ const PostForm = () => {
       }
     };
     reader.readAsDataURL(e.target.files[0]);
-    imageFile = e.target.files;
-    setImage(e.target.files[0]);
+    imageFile = e.target.files[0]
+    console.log(e.target.files);
+    //setImage(e.target.files[0]);
     setImgCheck("true");
   };
   
   //*데이터 편집 후 전송
   const postHandler = useCallback(
     (e) => {
+      console.log("imageFile",imageFile)
+      console.log("image", e.target[0].files[0]);
       e.preventDefault();
       setOpenModal(true);
 
@@ -58,7 +61,6 @@ const PostForm = () => {
           }
         )
         .then((res) => {
-
           const userdata = new FormData();
           userdata.append("title", title);
           userdata.append("category", category);

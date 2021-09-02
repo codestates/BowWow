@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const { generateAccessToken, generateRefreshToken, sendAccessToken, sendRefreshToken } = require('../tokenFunctions')
 require('dotenv').config();
 module.exports = async (req, res) => {
-    
+ 
  const { email, password } = req.body;
  const hashpassword = crypto.createHash('sha512').update(password).digest('hex');
  const data = await user.findOne({
