@@ -7,6 +7,7 @@ export const StyledMain  = styled.main`
   align-items: center;
   height : 100vh;
   background : linear-gradient(#37bc9b,${mainColor});
+  z-index: 10000000000;
   >.logo-box{
     display: flex;
     align-items: center;

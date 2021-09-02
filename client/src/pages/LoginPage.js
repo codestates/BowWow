@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import NavBar from '../component/NavBar';
 import Login from '../component/Login';
 import Footer from '../component/Footer';
@@ -8,6 +8,10 @@ function LoginPage({
   setNavString,
   setIsLogedIn,
 }) {
+
+  useEffect(() => {
+      window.scrollTo({ top: 0 });
+  }, [])
 
   return (
     <>

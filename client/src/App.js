@@ -10,18 +10,30 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import PostEditPage from "./pages/PostEditPage";
 import axios from 'axios';
+import Modal from './component/Modal';
 
 export const END_POINTS = "http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com";
 //루트만 짜기
 function App() {
-
+const [openModal, setOpenModal] = useState(false);
+const modalSuccess = true;
+const closeModal = () => {
+  setOpenModal(false);
+};
   const [isLogedIn, setIsLogedIn] = useState(false);
   const [postId, setPostId] = useState("");
   const [postsData, setPostsData] = useState(""); //홈 네브바에 따른 컨텐츠 보여주시
   const [navString, setNavString] = useState(""); //홈 네브바 선택 이름
   // let history = useHistory();
   useEffect(() => {
-    if (navString === "" || navString === "service") {
+    if (navString === "") {
+      return axios
+        .get(`${END_POINTS}/service`, { withCredentials: true })
+        .then((res) => {
+          const data = res.data.data.posts;
+          setPostsData(data);
+        });
+    }else if(navString === "service") {
       return axios
         .get(
           `${END_POINTS}/service`,
@@ -67,22 +79,26 @@ function App() {
     });
   }
   }, []);
-  
+    
   //login핸들러
-  const loginHandler = (userInfoId) => {
+  const loginHandler = () => {
     setIsLogedIn(true);
+    window.history.go(-1);
+
+
+    // window.location.href = "http://localhost:3000/";
   };
   //logout핸들러
   const logoutHandler = () => {
     setIsLogedIn(false);
-    alert('로그아웃이 되었습니다.')
 
     document.cookie = `accesstoken=${null}`;
     document.cookie = `refreshtoken=${null}`;
-
-    window.location.href = "https://eteammerge.ga/";
+    setOpenModal(true);
+    // window.history.go(-1);
   };
 
+  
   return (
     <>
       <BrowserRouter>
@@ -149,11 +165,16 @@ function App() {
             />
           </Route>
           <Route path="/signup">
-            <SignUpPage
-              setNavString={setNavString}
-            />
+            <SignUpPage setNavString={setNavString} />
           </Route>
         </Switch>
+        {openModal && modalSuccess ? (
+          <Modal
+            openModal={openModal}
+            closeModal={closeModal}
+            modalText="로그아웃되었습니다."
+          ></Modal>
+        ) : null}
       </BrowserRouter>
     </>
   );

@@ -20,11 +20,13 @@ const Home = ({ handleClickForService }) => {
             와 <br/>함께하세요.{" "}
           </h1>
           
-        <Fade bottom>
-              <button onClick={handleClickForService}>
+         <Fade bottom>
+              <button
+                onClick={handleClickForService}
+              >
           <span className = 'shape stagger-item'>Get Start!</span>
         </button>
-        </Fade>
+        </Fade>  
         </div>
       </div>
       </Fade>

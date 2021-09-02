@@ -9,7 +9,6 @@ function Search() {
   useEffect(() => {
     window.scrollTo({
       top: 940,
-      behavior: "smooth",
     });
 
     inputRef.current.focus();
