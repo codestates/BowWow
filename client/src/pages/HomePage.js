@@ -22,7 +22,9 @@ function HomePage({
   const [ScrollY, setScrollY] = useState(0);
   /*맨 위로 이동*/
 
+  
   const navBar = document.getElementById("navBar")
+
   const handleClickForService = () => {
     window.scrollTo({
       top: navBar.offsetTop,
@@ -49,14 +51,19 @@ function HomePage({
     setScrollY(0); // ScrollY 의 값을 초기화
   };
 
-  useEffect(() => {
-    //console.log("ScrollY is ", ScrollY); // ScrollY가 변화할때마다 값을 콘솔에 출력
-  }, [ScrollY]);
+  // useEffect(() => {
+  //   console.log("ScrollY is ", ScrollY); // ScrollY가 변화할때마다 값을 콘솔에 출력
+ 
+  //   let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    
+  //   console.log("현재 스크롤 위치",scrollPosition);
+  //   window.scrollTo(0,0)
 
-  
-  //
+  // }, []);
+
   return (
     <>
+   
       <Main handleClickForService={handleClickForService} />
       <NavBar
         logoutHandler={logoutHandler}
@@ -67,7 +74,7 @@ function HomePage({
         logutOpenModal = {logutOpenModal}
       />
       {navString === "service" || navString === "" ? (
-        <Service postsData={postsData} setPostId={setPostId} />
+        <Service  postsData={postsData} setPostId={setPostId} />
       ) : navString === "volunteer" ? (
         <Volunteer postsData={postsData} setPostId={setPostId} />
       ) : (
