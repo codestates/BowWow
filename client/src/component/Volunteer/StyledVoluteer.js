@@ -1,36 +1,36 @@
 import styled from 'styled-components'
 
 export const StyledVolunteer = styled.section`
-  
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding : 100px 200px 50px;
-
->.more-btn{
-  border :none;
-  width: 100px;
-  font-size: 16px;
-  padding : 10px;
-  text-align: center;
-  border-radius: 5px;
-  background-color: #48cfad;
-  color : white;
-  margin-top : 30px; 
-  :hover{
-    background: #fff;
-    border: 1px solid #48CFAD;
-    color: #48CFAD;
-    transition: all 0.3s ease;
+  margin: 60px;
+  padding: 40px 300px 50px;
+  
+  > .more-btn {
+    align-self: center;
+    border: none;
+    width: 100px;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #48cfad;
+    color: white;
+    margin-top: 30px;
+    :hover {
+      background: #fff;
+      border: 1px solid #48cfad;
+      color: #48cfad;
+      transition: all 0.3s ease;
+    }
   }
-}
-`
+`;
 export const StyledVolunteerList = styled.div`
 
-column-width: 200px;
+column-width: 280px;
 column-gap: 10px;
   
 `

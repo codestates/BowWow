@@ -6,6 +6,7 @@ import UserImgUpload from "./UserImgUpload";
 import useInput from "../../hooks/useInput";
 import Modal from "../Modal";
 import axios from "axios";
+let imageFile;
 
 const SignUp = () => {
   // 모달
@@ -27,6 +28,7 @@ const SignUp = () => {
       }
     };
     reader.readAsDataURL(e.target.files[0]);
+    imageFile = e.target.files;
     setUserImage(e.target.files[0]);
     setImgCheck("true");
   };
@@ -60,7 +62,7 @@ const SignUp = () => {
   //* form submit
   const signupHandler = useCallback((e) => {
     e.preventDefault();
-    setOpenModal(true)
+    
 
       if (password !== passwordCheck) {
         return setPasswordError(true);
@@ -71,7 +73,7 @@ const SignUp = () => {
       userdate.append("nickname", nickname);
       userdate.append("introduce", introduce);
       userdate.append("password", password);
-      userdate.append("input-image", e.target[3].files[0]);
+      userdate.append("input-image", imageFile[0]);
       userdate.append("imgCheck", imgCheck);
       axios
         .post(
@@ -84,10 +86,10 @@ const SignUp = () => {
         )
         .then((res) => {
           setModalSuccess(true)
+          setOpenModal(true);
         })
         .catch((err) => {
           console.log(err);
-          alert("중복된 이메일이 있습니다. 다시 입력해주세요.");
           setModalSuccess(false);
           setOpenModal(true);
         });

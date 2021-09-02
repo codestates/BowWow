@@ -19,16 +19,15 @@ function HomePage({
   logutOpenModal
 }) {
   /*스크롤 상태저장*/
-  const [ScrollY, setScrollY] = useState(0);
+  // const [ScrollY, setScrollY] = useState(0);
   /*맨 위로 이동*/
 
-  const navBar = document.getElementById("navBar")
+  // const navBar = document.getElementById("navBar")
   const handleClickForService = () => {
     window.scrollTo({
-      top: navBar.offsetTop,
+      top: 940,
       behavior: "smooth",
-    });
-    setScrollY("navBar"); // ScrollY 의 값을 초기화
+    }); // ScrollY 의 값을 초기화
   };
 
   const handleClickSignup = () => {
@@ -36,7 +35,7 @@ function HomePage({
       top: 0,
       // behavior: "smooth",
     });
-    setScrollY(0); // ScrollY 의 값을 초기화
+    // setScrollY(0); // ScrollY 의 값을 초기화
   };
 
   /*로고 scroll 구현*/
@@ -46,13 +45,30 @@ function HomePage({
       top: 0,
       behavior: "smooth",
     });
-    setScrollY(0); // ScrollY 의 값을 초기화
+    // setScrollY(0); // ScrollY 의 값을 초기화
   };
 
   useEffect(() => {
-    //console.log("ScrollY is ", ScrollY); // ScrollY가 변화할때마다 값을 콘솔에 출력
-  }, [ScrollY]);
-
+    if (navString === "service") {
+      window.scrollTo(
+        {
+          top: 940,
+        },
+      );
+    }
+  }, [])
+  // useEffect(() => {
+  //   //console.log("ScrollY is ", ScrollY); // ScrollY가 변화할때마다 값을 콘솔에 출력
+  // }, [ScrollY]);
+// useEffect(() => {
+//   const scrollPos = sessionStorage.getItem("scrollPos");
+//   if (scrollPos !== null) {
+//     window.scrollTo(0, scrollPos);
+//   }
+//   window.addEventListener("scroll", () => {
+//     sessionStorage.setItem("scrollPos", window.pageYOffset);
+//   });
+// });
   
   //
   return (
@@ -64,10 +80,14 @@ function HomePage({
         isLogedIn={isLogedIn}
         handleTop={handleTop}
         handleClickSignup={handleClickSignup}
-        logutOpenModal = {logutOpenModal}
+        logutOpenModal={logutOpenModal}
       />
       {navString === "service" || navString === "" ? (
-        <Service postsData={postsData} setPostId={setPostId} />
+        <Service
+          navString={navString}
+          postsData={postsData}
+          setPostId={setPostId}
+        />
       ) : navString === "volunteer" ? (
         <Volunteer postsData={postsData} setPostId={setPostId} />
       ) : (
