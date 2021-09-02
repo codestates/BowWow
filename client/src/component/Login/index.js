@@ -37,7 +37,7 @@ function Login({ setIsLogedIn, loginHandler }) {
         history.push("/");
       })
       .catch((err) => {
-        console.err(err);
+        console.log(err);
         setOpenModal(true)
         setModalSuccess(false)
       });

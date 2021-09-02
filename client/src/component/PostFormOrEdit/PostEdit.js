@@ -74,12 +74,12 @@ const PostEdit = ({ postId, setPostId }) => {
             setOpenModal(true);
           })
           .catch((err) => {
-            console.err(err);
+            console.log(err);
             setModalSuccess(true);
             setOpenModal(true);
           });
       }).catch((err) => {
-        console.err(err);
+        console.log(err);
         setModalSuccess(false);
         setOpenModal(true);
       })

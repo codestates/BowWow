@@ -15,7 +15,7 @@ const Service = ({ postsData, setPostId}) => {
 
   useEffect(() => {
     window.scrollTo({
-      top: 940,
+      top: 1100,
       behavior: "smooth",
     });
 

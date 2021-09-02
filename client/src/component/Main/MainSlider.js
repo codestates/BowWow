@@ -14,18 +14,18 @@ const SlideTitle = styled.h2`
 `;
 
 const ImgSlide = styled.img`
-  margin : 0 auto;
-  width : 90%;
+  margin : 0 auto 30px;
+  width : 80%;
   border-radius: 10px;
 `
 
 const Container = styled.div`
-  margin : 0 80px;
+  margin-left : 170px ;
   width : 375px;
   height : 66%;
   border-radius : 50px;
   background: #fff;
-  padding : 0 20px -10px 0;
+  padding :40px 0px ;
   box-sizing: border-box;
   >ul{
     margin-bottom : 30px;
@@ -39,8 +39,9 @@ const Container = styled.div`
 `;
 const SlideH3 = styled.h3`
 text-align: center;
-margin: 20px 30px 50px;
+margin: 50px 30px 50px;
 font-weight: 500;
+font-size : 22px;
 letter-spacing: -1px;
 `
 

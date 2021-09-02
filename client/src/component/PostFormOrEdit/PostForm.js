@@ -48,7 +48,6 @@ const PostForm = () => {
       console.log("imageFile",imageFile)
       console.log("image", e.target[0].files[0]);
       e.preventDefault();
-
       setOpenModal(true);
 
       axios
@@ -56,12 +55,8 @@ const PostForm = () => {
           `http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/auth`,
           {
             headers: {
-              accesstoken: document.cookie
-                .split("accesstoken=")[1]
-                .split(";")[0],
-              refreshtoken: document.cookie
-                .split("refreshtoken=")[1]
-                .split(";")[0],
+              accesstoken: document.cookie.split("accesstoken=")[1].split(";")[0],
+              refreshtoken: document.cookie.split("refreshtoken=")[1].split(";")[0],
             },
           }
         )
@@ -91,10 +86,12 @@ const PostForm = () => {
             });
         })
         .catch((err) => {
-          console.err(err);
+          console.log(err);
         });
     },
-    [title, mobile, content ]
+
+    [title, mobile, content, category]
+
   );
 
   const cancelHandler = () => {

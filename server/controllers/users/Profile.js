@@ -7,7 +7,7 @@ module.exports = (app) => {
     const application = app;
 
     router.get('/info', async (req, res) => {
-
+        
        const data =  await user.findOne({ 
             where : { id: req.query.id },
             include: [{ model: post, attributes : { exclude: ['mobile', 'date', 'image', 'createdAt']} 
@@ -23,7 +23,7 @@ module.exports = (app) => {
         }),
 
         router.get('/', async (req, res) => {
-
+            
             const data =  await user.findOne({ 
                  where : { id: req.query.id },
                 attributes:{ exclude:['createdAt', 'password']}

@@ -139,32 +139,6 @@ function ViewPostComment({
           className="post-comment-text-submit">입력</button>
         </form>
 
-        <form
-          className="flex-box"
-          onSubmit={(e) => {
-            addCommentHandler(e);
-          }}
-        >
-          <textarea
-            required
-            ref={inputRef}
-            type="text"
-            name="comment"
-            onChange={onChangeComment}
-            value={comment}
-            className="post-comment-text"
-            placeholder="100자 이내로 댓글 입력해주세요."
-          />
-          <button
-            onClick={() => {
-              // setOpenModal(true);
-            }}
-            className="post-comment-text-submit"
-          >
-            입력
-          </button>
-        </form>
-
         <div className="list-item-scroll">
           <ul className="post-comment-wrapper">
             {commentInfo &&

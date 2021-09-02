@@ -63,7 +63,7 @@ function App() {
         setIsLogedIn(true);
       }
     }).catch((err) => {
-      console.err(err);
+      console.log(err);
     });
   }
   }, []);

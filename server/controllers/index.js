@@ -9,6 +9,5 @@ module.exports = {
     service_list: require('./posts/Service_list'),
     volunteer_list: require('./posts/Volunteer_list'),
     comments: require('./comment/comments'),
-    search: require('./posts/Search'),
     posts: require('./posts/post')
 }

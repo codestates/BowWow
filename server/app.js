@@ -17,6 +17,7 @@ app.use(cors({
   origin: true,
   //origin:'http://localhost:4000'
   credentials: true,
+  'Access-Control-Expose-Headers': 'Set-Cookie',
   methods: ['GET','POST','OPTIONS','DELETE','PATCH']
 }))
 

@@ -14,13 +14,11 @@ module.exports = {
     },
 
     sendAccessToken: (res, accessToken) => {
-        res.cookie('accessToken', accessToken, { httpOnly: true })
+        res.cookie('accessToken', accessToken, {httpOnly:true,path:'/',secure:true,sameSite:'none' })
     },
 
     sendRefreshToken : (res, refreshToken) => {
-    //    res.cookie('refreshToken', refreshToken, {
-    //        domain:'localhost',sameSite:'none',httpOnly:true,maxAge:`${1000*60*60*24*30}`,overwrite:true,secure:true,authorized:true,path: '/'})
-        res.cookie('refreshToken', refreshToken, { httpOnly: true })
+        res.cookie('refreshToken', refreshToken, {httpOnly:true,path:'/',secure:true,sameSite:'none' })
     },
 
     checkRefresh: (refreshToken) => {
