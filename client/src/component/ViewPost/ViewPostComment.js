@@ -103,7 +103,6 @@ function ViewPostComment({
           }
         })
         .catch((err) => {
-           
           setModalSuccess(false);
           setOpenModal(true);
         });

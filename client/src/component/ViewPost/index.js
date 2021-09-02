@@ -42,12 +42,11 @@ function ViewPost({ postId, isLogedIn}) {
           updatedAt: res.data.data.posts.updatedAt,
           userId: res.data.data.posts.user.id,
         });
-        
-        if (res.data.data.comment.length === 1) {
-          setCommentInfo(res.data.data.comment[0].reverse());
-        } else {
-          setCommentInfo(res.data.data.comment.reverse());
-        }
+          if (res.data.data.comment.length === 1) {
+            setCommentInfo(res.data.data.comment[0].reverse());
+          } else {
+            setCommentInfo(res.data.data.comment.reverse());
+          }
         
         let accesstoken = document.cookie.includes("accesstoken");
         let refreshtoken = document.cookie.includes("refreshtoken");
