@@ -48,8 +48,8 @@ function ViewPostComment({
                 `http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/comments?id=${postId}`
               )
               .then((res) => {
-                console.log(res.data.data)
-                  setCommentInfo(res.data.data.comment.reverse());
+                console.log("res.data.data",res.data.data)
+                setCommentInfo(res.data.data.comment.reverse());
               })
               .catch((err) => {
               });
@@ -103,7 +103,6 @@ function ViewPostComment({
           }
         })
         .catch((err) => {
-          
           setModalSuccess(false);
           setOpenModal(true);
         });
@@ -140,7 +139,7 @@ function ViewPostComment({
           <ul className="post-comment-wrapper">
             {commentInfo &&
               commentInfo.map((el) => {
-                console.log(el)
+                console.log('el',{el})
                 return (
                   <li key={el.id} className="post-comment-list">
                     <div className="post-commnet-flexbox">
