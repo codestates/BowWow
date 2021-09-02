@@ -1,7 +1,7 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
 import {StyledModal} from './StyledModal'
-
+ 
 //로그인이 필요합니다는 댓글창 
 function Modal({
   openModal,
