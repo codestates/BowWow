@@ -9,12 +9,11 @@ const PostFormPage = ({
   setNavString,
   isLogedIn,
   setIsLogedIn,
-  hasUserId,
 }) => {
+  
   return (
     <>
       <NavBar
-        hasUserId={hasUserId}
         logoutHandler={logoutHandler}
         setPostsData={setPostsData}
         setNavString={setNavString}
@@ -22,7 +21,6 @@ const PostFormPage = ({
         setIsLogedIn={setIsLogedIn}
       />
       <PostForm
-        hasUserId={hasUserId}
         isLogedIn={isLogedIn}
         setIsLogedIn={setIsLogedIn}
       />

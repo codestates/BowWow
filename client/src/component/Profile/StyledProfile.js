@@ -140,8 +140,6 @@ export const StyledProfileListItem = styled.div`
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 
-  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-
   > .list-item-wrapper {
     display: flex;
     margin: 8px 0 12px 0;

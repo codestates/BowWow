@@ -8,20 +8,18 @@ const PostEditPage = ({
   setPostsData,
   setNavString,
   postId,
-  hasUserId,
   isLogedIn,
   
 }) => {
   return (
     <>
       <NavBar
-        hasUserId={hasUserId}
         logoutHandler={logoutHandler}
         setPostsData={setPostsData}
         setNavString={setNavString}
         isLogedIn={isLogedIn}
       />
-      <PostEdit hasAccessToken={hasUserId} postId={postId} />
+      <PostEdit postId={postId} />
       <Footer />
     </>
   );

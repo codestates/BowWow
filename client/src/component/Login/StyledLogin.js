@@ -24,7 +24,6 @@ export const StyledLogin = styled.div`
       font-weight: 400;
       line-height: 1.5rem;
       font-family: "Nanum Gothic Coding", monospace;
-  
       border: none;
       text-align: center;
       transition: all 0.4s ease-in-out;
@@ -36,6 +35,9 @@ export const StyledLogin = styled.div`
         background: #fff;
         color: #48cfad;
         }
+    }
+    >.modal-btn{
+      margin-top : 50px;
     }
     >.oath-btn{
       background: yellow;
@@ -59,15 +61,15 @@ export const StyledLogin = styled.div`
     font-size: 16px;
     }
     >p{
-      width : 100%;
-      margin : 0;
-      padding : 0 0 0 12px;
+      width : 300px;
+      margin : 0 auto;
+      padding : 10px 0 0;
       text-align: left;
       color : red;
     }
     > h2 {
     clear: both;
-    }
+      }
     }
 }
 `

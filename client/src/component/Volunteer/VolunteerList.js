@@ -5,8 +5,6 @@ import Fade from "react-reveal/Fade"
 
 const VolunteerList = ({slice ,setPostId }) => {
   let history = useHistory();
-  //console.log(serviceImg)
-  // console.log('=========',slice)
 
   const postClickHandler = (id) => {
     const dataId = id;
@@ -18,17 +16,22 @@ const VolunteerList = ({slice ,setPostId }) => {
     <StyledVolunteerList className = 'volunteer-list-container'>
       {slice.map((el) => {
         return (
-          <ServiceVolunteerWrapper 
-            onClick= {() => {postClickHandler(el.id)}}
-            key={el.id}
-            id = 'columns'
-            className={"service-img-" + el.post.id}>
-              <Fade top>
-            <figure>  
-              <img src={el.post.image} alt="dog-img" />
-              <figcaption className = 'title'>{el.post.title}</figcaption>
-              <figcaption className = 'updated-at'>{el.post.updatedAt}</figcaption>
-            </figure>
+          <ServiceVolunteerWrapper
+            onClick={() => {
+              postClickHandler(el.post.id);
+            }}
+            key={el.post.id}
+            id="columns"
+            className={"service-img-" + el.post.id}
+          >
+            <Fade top>
+              <figure>
+                <img src={el.post.image} alt="dog-img" />
+                <figcaption className="title">{el.post.title}</figcaption>
+                <figcaption className="updated-at">
+                  {(el.post.updatedAt || "").split("T")[0].replaceAll("-", ".")}
+                </figcaption>
+              </figure>
             </Fade>
           </ServiceVolunteerWrapper>
         );

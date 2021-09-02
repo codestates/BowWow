@@ -3,7 +3,6 @@ import React from 'react';
 import { StyledPostFormUploadImg } from './StyledPostForm';
 
 const UploadImg = ({ image, imageHandler }) => {
-  // console.log(userImage);
 
   return (
     <StyledPostFormUploadImg>

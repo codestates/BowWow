@@ -128,3 +128,42 @@ export const StyledMain  = styled.main`
     }
   }
 `
+export const SlideTitle = styled.h2`
+  padding: 20px;
+  margin-left : 20px;
+  text-align: left;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #F8CD07;
+`;
+
+export const ImgSlide = styled.img`
+  margin : 0 auto;
+  width : 90%;
+  border-radius: 10px;
+`
+
+export const Container = styled.div`
+  margin : 0 80px;
+  width : 375px;
+  height : 66%;
+  border-radius : 50px;
+  background: #fff;
+  padding : 0 20px -10px 0;
+  box-sizing: border-box;
+  >ul{
+    margin-bottom : 30px;
+    >.slick-active{
+    padding :0;
+    background-color: #F8CD07;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+  }
+  }
+`;
+export const SlideH3 = styled.h3`
+text-align: center;
+margin: 20px 30px 50px;
+font-weight: 500;
+letter-spacing: -1px;
+`

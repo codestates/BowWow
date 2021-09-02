@@ -11,7 +11,7 @@ const application = app;
                 include : [{model: user}, {model: category_content}]})
             const data2 = await comment.findAll({ where: { posts_id: id },
                 include: [{ model: user }]})
-                delete data1.dataValues.password
+                delete data1.password
                 if(data2.length === 1){
                 res.status(200).send({message: 'ok', data : { posts: data1, comment: [ data2 ]}})
                 } else {
@@ -26,20 +26,6 @@ const application = app;
                 res.status(422).send({message: 'insufficient parameters supplied'})
             } else {
             if(req.body.category === 'service'){
-            //     if(req.body.imgCheck === 'false'){ //이미지 없으면?
-            //   const data = await post.create({
-            //         image: defaultImage, //기본이미지
-            //         title: title,
-            //         mobile: mobile,
-            //         content: content,
-            //         user_id: req.body.userId,
-            //         attributes: { exclude : ['date','location']}})
-            //     const data2 = await category_content.create({
-            //             category_id: 1,
-            //             posts_id: data.id
-            //         })
-            //         res.status(201).send({messsage: 'post write success', data, data2})
-            //     } else { //이미지 있으면
                 const data = await post.create({
                         image: req.file.location,
                         title: title,
@@ -68,26 +54,7 @@ const application = app;
                         })
                         res.status(201).send({message: "post write success", data, data2})
                     }}
-                } 
-                
-                
-                //     if(req.body.imgCheck === 'false'){ //이미지 없으면?
-                // const data = await post.create({
-                //         image: defaultImage, //기본이미지
-                //         title: title,
-                //         mobile: mobile,
-                //         content: content,
-                //         date: date,
-                //         location: location,
-                //         user_id: req.body.userId
-                //         })
-                // const data2 = await category_content.create({
-                //             category_id: 2,
-                //             posts_id: data.id
-                //         })
-                //         res.status(201).send({messsage: 'post write success', data, data2})
-                //     } else { //이미지 있으면
-                
+                }   
               ),
 
         router.patch('/', upload.single('input-image'), async (req, res) => {

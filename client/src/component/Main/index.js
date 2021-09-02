@@ -21,7 +21,7 @@ const Home = ({ handleClickForService }) => {
           </h1>
           
         <Fade bottom>
-        <button onClick={handleClickForService}>
+              <button onClick={handleClickForService}>
           <span className = 'shape stagger-item'>Get Start!</span>
         </button>
         </Fade>

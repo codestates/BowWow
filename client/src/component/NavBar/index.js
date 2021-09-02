@@ -1,41 +1,45 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { StyledNavBar } from "./StyledNavBar";
 import { Link, useHistory } from "react-router-dom";
+import Modal from '../Modal'
 import axios from 'axios'
 axios.defaults.withCredentials = true;
 // import axios from "axios";
-//setPostsData : 데이터를 가져왔을 때 응답받았을 떄 데이터. -> 응답받으면 상태변화를 준다.
 //setPostsString : 스트링으로 데이터 요청을 보내고
 
 const NavBar = ({
-  hasAccessToken,
-  setPostsData,
   setNavString,
-  handleTop,
   logoutHandler,
   isLogedIn,
+  handleTop,
+  handleClickSignup,
 }) => {
-// console.log("navlogin", isLogedIn)
+  // console.log("navlogin", isLogedIn)
+  const [openModal, setOpenModal] = useState(false);
+  const modalSuccess = true;
+  const closeModal = () => {
+    setOpenModal(false);
+  };
+
+  const logOut = () => {
+    logoutHandler();
+  }
 
   let history = useHistory();
 
   const selectNavHandler = (string) => {
-    console.log("네브바 선택::::",string)
     const postsString = string;
     setNavString(postsString);
     history.push("/");
   };
-
   const menu = [{ name: "service" }, { name: "search" }, { name: "volunteer" }];
-
   const accessPost = useCallback(() => {
     if (isLogedIn) {
-      history.push('/postform')
+      history.push("/postform");
     } else {
-      alert("로그인이 필요한 서비스입니다.");
-
+      setOpenModal(true);
     }
-  },[history, isLogedIn])
+  }, [history, isLogedIn]);
 
   return (
     <StyledNavBar id="navBar">
@@ -45,7 +49,7 @@ const NavBar = ({
           <Link to="/">
             <img onClick={handleTop} src="../images/logo.png" alt="logo img" />
           </Link>
-          
+
           {menu.map((menuItem, idx) => {
             return (
               <li
@@ -57,9 +61,7 @@ const NavBar = ({
               </li>
             );
           })}
-          <button
-            onClick={ accessPost}
-          >
+          <button onClick={accessPost}>
             <li className="post">Post</li>
           </button>
         </div>
@@ -69,7 +71,7 @@ const NavBar = ({
               <button>로그인</button>
             </Link>
             <Link to="/signup">
-              <button>회원가입</button>
+              <button onClick={handleClickSignup}>회원가입</button>
             </Link>
           </div>
         ) : (
@@ -85,11 +87,19 @@ const NavBar = ({
             </Link>
 
             <Link to="/">
-              <button onClick={logoutHandler}>로그아웃</button>
+              <button onClick={logOut}>로그아웃</button>
             </Link>
           </div>
         )}
       </ul>
+
+      {!isLogedIn ? (
+        <Modal
+          openModal={openModal}
+          closeModal={closeModal}
+          modalText="로그인이 필요한 서비스입니다."
+        ></Modal>
+      ) : null}
     </StyledNavBar>
   );
 };

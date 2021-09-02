@@ -4,27 +4,21 @@ import NavBar from '../component/NavBar'
 import Profile from '../component/Profile'
 
 const ProfilePage = ({
-  hasAccessToken,
   logoutHandler,
   setPostsData,
   setNavString,
   isLogedIn,
-  setIsLogedIn 
 }) => {
   return (
     <>
       <NavBar
-        hasAccessToken={hasAccessToken}
         logoutHandler={logoutHandler}
-        setPostsData={setPostsData}
         setNavString={setNavString}
-        isLogedIn = {isLogedIn}
-        setIsLogedIn ={setIsLogedIn}
+        isLogedIn={isLogedIn}
       />
-      <Profile 
-      hasAccessToken={hasAccessToken} 
-      isLogedIn = {isLogedIn}
-      setIsLogedIn ={setIsLogedIn}/>
+      <Profile
+        setPostsData={setPostsData}
+      />
       <Footer />
     </>
   );

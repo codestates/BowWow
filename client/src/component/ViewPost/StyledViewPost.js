@@ -37,7 +37,7 @@ export const StyledViewPostComment = styled.div`
       align-items: center;
       margin-top: 12px;
       > .post-comment-text-submit {
-        width: 50px;
+        width:18%;
         height: 60px;
         background: #48cfad;
         color: white;
@@ -57,7 +57,7 @@ export const StyledViewPostComment = styled.div`
     }
     > .flex-box > .post-comment-text {
       resize: none;
-      width: 250px;
+      width: 88%;
       padding: 10px;
       height: 60px;
       border: none;
@@ -93,6 +93,7 @@ export const StyledViewPostComment = styled.div`
       > .post-comment-wrapper {
         list-style: none;
         padding: 0;
+        width : 335px;
         > .post-comment-list {
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           background-color: #fff;

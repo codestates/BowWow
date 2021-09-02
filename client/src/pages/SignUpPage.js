@@ -1,12 +1,15 @@
-import React from 'react'
+import React from "react";
 import NavBar from '../component/NavBar';
 import Signup from '../component/SignupOrProfileEdit/Signup';
 import Footer from '../component/Footer';
 
-function SignUpPage({ setPostsData, setNavString }) {
+function SignUpPage({ setNavString }) {
+  
   return (
+
+
     <>
-      <NavBar setPostsData={setPostsData} setNavString={setNavString} />
+      <NavBar setNavString={setNavString}  />
       <Signup />
 
       <Footer />

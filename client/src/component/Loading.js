@@ -42,7 +42,6 @@ const StyledLoading = styled.div`
     }
 `;
 
-
 function Loading() {
   return (
     <StyledLoading className= ' loading-box'>

@@ -7,13 +7,12 @@ display: flex;
 justify-content: center;
 align-items: center;
 width : 100%;
-height : 95vh;
+height : 92vh;
 >.searchWrapper{
   width :375px;
   height : 500px;
   background: ${searchMainColor};
   border-radius : ${borderRadius};
-  margin : -30px 10px 0 0;
   text-align: center;
 }
 `;
@@ -22,12 +21,12 @@ display: flex;
 justify-content: center;
 align-items: center;
 >form {
-  margin : 30px 0px;
+  margin : 30px 0px 20px;
 }
 >form > input {
-  font-size: 16px;
+  font-size: 18px;
   width : 240px;
-  height : 42px;
+  height : 50px;
   padding : 0 10px;
   border-radius : 5px 0 0 5px;
   border:none;
@@ -35,8 +34,8 @@ align-items: center;
 >form > button{
   background: #fff;
   width : 50px;
-  height : 42px;
-  font-size :20px;
+  height : 50px;
+  font-size :18px;
   border : none;
   border-radius: 0 5px 5px 0;
   color : ${searchMainColor};
@@ -50,15 +49,27 @@ align-items: center;
 export const StyledSearchMapList = styled.div`
   border-radius : ${borderRadius};
   width : 80%; 
-  height: 70%;
+  height: 73%;
   margin : 0 auto;
   box-sizing: border-box;
   overflow: hidden;
   overflow-y: auto;
+    &::-webkit-scrollbar {
+      background-color: #fff;
+      width: 5px;
+      height: 8px;
+      padding-top: 1px;
+      margin-left : 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #37BC9B;
+      border-radius: 150px;
+    }
   >.search-maplist-wrapper{
     border-radius: ${borderRadius};
     padding : 10px;
-    margin : 4px;
+    margin : 5px 10px 0 5px;
     background: #fff;
     cursor: pointer;
     text-align: left;
@@ -67,16 +78,18 @@ export const StyledSearchMapList = styled.div`
         transform : scale(1.05);
         transition: all 0.3s ease-in-out;
       }
-      >h2{
+      >h1{
         /* color : ${searchMainColor} */
         font-weight : 500;
-        font-size: 20px;
+        font-size: 18px;
       }
-      >div{
+      >p{
         padding : 0 10px;
         margin-top: 10px;
+        color : #48cfad;
         >span{
         font-size: 12px;
+        color : black;
         }
         >.search-location,>.search-mobile{
           font-weight: 700;

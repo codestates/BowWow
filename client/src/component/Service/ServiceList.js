@@ -4,12 +4,10 @@ import {
   StyledServiceList,
   ServiceListWrapper,
 } from "./StyledService";
-
 import Fade from "react-reveal/Fade"
 
 const ServiceList = ({ setPostId, slice }) => {
   let history = useHistory();
-  // console.log(slice)
 
   const postClickHandler = (id) => {
     const dataId = id;

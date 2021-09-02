@@ -1,17 +1,16 @@
-import React, { useState, useCallback} from "react";
-import {
-  StyledPostForm,
-  TextArea,
+import React, { useState, useCallback, useEffect } from "react";
+import {StyledPostForm,TextArea,
 } from "./StyledPostForm";
 import UploadImg from './UploadImg';
 import { useHistory } from "react-router-dom";
 import useInput from "../../hooks/useInput";
+import Modal from '../Modal'
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
 let imageFile;
 
-const PostForm = ({ hasUserId, isLogedIn, setIsLogedIn }) => {
+const PostForm = () => {
   const history = useHistory();
   const [title, onChangeTitle] = useInput("");
   const [category, onChangeCategory] = useInput("");
@@ -22,9 +21,12 @@ const PostForm = ({ hasUserId, isLogedIn, setIsLogedIn }) => {
   //* 이미지 미리보기
   const [image, setImage] = useState("");
   const [imgCheck, setImgCheck] = useState("false");
-  // console.log(image);
-  
-  
+  const [modalSuccess , setModalSuccess] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const closeModal = () => {
+    setOpenModal(false);
+  };
+
   const imageHandler = (e) => {
     const reader = new FileReader();
 
@@ -39,32 +41,32 @@ const PostForm = ({ hasUserId, isLogedIn, setIsLogedIn }) => {
     //setImage(e.target.files[0]);
     setImgCheck("true");
   };
+  
   //*데이터 편집 후 전송
   const postHandler = useCallback(
     (e) => {
       console.log("imageFile",imageFile)
       console.log("image", e.target[0].files[0]);
       e.preventDefault();
+
+      setOpenModal(true);
+
       axios
         .get(
           `http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/auth`,
           {
             headers: {
-
-              accesstoken: document.cookie.split("accesstoken=")[1].split(";")[0],
-              refreshtoken: document.cookie.split("refreshtoken=")[1].split(";")[0],
-
+              accesstoken: document.cookie
+                .split("accesstoken=")[1]
+                .split(";")[0],
+              refreshtoken: document.cookie
+                .split("refreshtoken=")[1]
+                .split(";")[0],
             },
           }
         )
         .then((res) => {
-
-          console.log("postform/auth:", res.data.data.userinfo);
-          console.log("image", e.target[0].files[0]);
-          console.log("imagefile", imageFile);
-
           const userdata = new FormData();
-
           userdata.append("title", title);
           userdata.append("category", category);
           userdata.append("date", date);
@@ -82,26 +84,29 @@ const PostForm = ({ hasUserId, isLogedIn, setIsLogedIn }) => {
               { headers: { "Content-Type": "multipart/form-data" } }
             )
             .then((res) => {
-              // console.log("포스트폼 작성 완료버튼", res.data.data);
-              alert("게시글이 작성되었습니다.");
-              window.location.replace("/");
+              setModalSuccess(true)
             })
             .catch((err) => {
-              console.log(err);
-              alert("게시글 작성에 실패했습니다. 다시 시도해주세요.");
+              setModalSuccess(false);
             });
         })
         .catch((err) => {
-          console.log("auth에러:", err);
+          console.err(err);
         });
     },
-    [imageFile]
+    [title, mobile, content ]
   );
 
   const cancelHandler = () => {
     alert("게시글 작성이 취소되었습니다.");
     history.goBack();
   };
+
+  useEffect(() => {
+      window.scrollTo({
+        top: 0
+      });
+  }, [])
 
   return (
     <StyledPostForm>
@@ -187,6 +192,13 @@ const PostForm = ({ hasUserId, isLogedIn, setIsLogedIn }) => {
           </div>
         </div>
       </form>
+
+      <Modal 
+      openModal = {openModal}
+      closeModal = {closeModal}
+      modalSuccess = {modalSuccess}
+      modalText = {modalSuccess===true ? '게시글이 작성되었습니다.' : '게시글 작성에 실패했습니다.'}
+      />
     </StyledPostForm>
   );
 };

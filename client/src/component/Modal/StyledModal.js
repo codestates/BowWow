@@ -20,13 +20,13 @@ const showModalBg = keyframes`
 `
 const tickle = keyframes`
   0% {
-    transform: translateX(-20%);
+    transform: translateY(-20%);
   }
   100% {
-    transform: translateX(10%);
+    transform: translateY(10%);
   }
 `
-export const StyledNeedLogin = styled.section`
+export const StyledModal = styled.section`
 >.modal {
   top: 0;
   right: 0;
@@ -44,16 +44,35 @@ export const StyledNeedLogin = styled.section`
   padding: 40px 20px;
   margin: 0 auto;
   width: 375px;
+  height : 200px;
   box-sizing: border-box;
   text-align: center;
   max-width: 400px;
   background-color: white;
   border-radius: 10px;
   animation: ${showModal}.4s;
-  >h3{
+  >h1{
     font-family: "Nanum Gothic Coding", monospace;
     line-height: 30px;
     letter-spacing: -1px;
+    margin-bottom: 30px;
+  }
+  >.modal-btn{
+    width : 100px;
+    border : none;
+    padding:10px;
+    border-radius: 10px;
+    background: #48cfad;
+    color : white;
+    letter-spacing: 1px;
+    margin : 30px 10px 0;
+    font-size: 16px;
+    &:hover{
+
+      border: 1px solid #48cfad;
+        background: #fff;
+        color: #48cfad;
+    }
   }
   >form{
     >.modal-btn, a>.modal-btn{
@@ -66,7 +85,7 @@ export const StyledNeedLogin = styled.section`
       font-weight: 400;
       line-height: 1.5rem;
       font-family: "Nanum Gothic Coding", monospace;
-  
+
       border: none;
       text-align: center;
       transition: all 0.4s ease-in-out;
@@ -112,12 +131,15 @@ export const StyledNeedLogin = styled.section`
     }
     }
   >.close-btn-x {
-      font-size: 10px;
+      font-size: 20px;
       width: 20px;
       height: 20px;
-      margin: -10px 0;
-      padding: 3px 10px 1px 1px;
+      margin: -20px 0;
+      padding: 0;
       float: right;
+      border: none;
+      background: none;
+      color : #48cfad;
       &:hover{
         background: white;
         border : none;
