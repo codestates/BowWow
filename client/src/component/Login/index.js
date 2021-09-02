@@ -30,16 +30,16 @@ function Login({ setIsLogedIn, loginHandler }) {
         { withCredentials: true, credentials: 'include' }
       )
       .then((res) => {
-        loginHandler(res.data.data.userinfo.id);
+        loginHandler();
         setIsLogedIn(true);
         document.cookie = `accesstoken=${res.data.data.accesstoken}`;
-        document.cookie = "refreshtoken=" + res.data.data.refreshtoken;
-        history.push("/");
+        document.cookie = "refreshtoken" + "=" + res.data.data.refreshtoken;
+        
       })
       .catch((err) => {
         console.log(err);
+        setModalSuccess(false);
         setOpenModal(true)
-        setModalSuccess(false)
       });
   };
 
@@ -73,7 +73,6 @@ function Login({ setIsLogedIn, loginHandler }) {
           </Link>
         </form>
       </div>
-
       <Modal 
       openModal = {openModal}
       closeModal = {closeModal}

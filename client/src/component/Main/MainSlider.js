@@ -14,7 +14,7 @@ const SlideTitle = styled.h2`
 `;
 
 const ImgSlide = styled.img`
-  margin : 0 auto 30px;
+  margin : 0 auto 20px;
   width : 80%;
   border-radius: 10px;
 `

@@ -21,16 +21,13 @@ const NavBar = ({
     setOpenModal(false);
   };
 
-  const logOut = () => {
-    logoutHandler();
-  }
 
   let history = useHistory();
 
   const selectNavHandler = (string) => {
     const postsString = string;
     setNavString(postsString);
-    history.push("/");
+    // history.push("/");
   };
   const menu = [{ name: "service" }, { name: "search" }, { name: "volunteer" }];
   const accessPost = useCallback(() => {
@@ -39,13 +36,12 @@ const NavBar = ({
     } else {
       setOpenModal(true);
     }
-  }, [history, isLogedIn]);
+  }, [isLogedIn]);
 
   return (
     <StyledNavBar id="navBar">
       <ul>
         <div className="leftNav">
-          {/*로고 */}
           <Link to="/">
             <img onClick={handleTop} src="../images/logo.png" alt="logo img" />
           </Link>
@@ -55,7 +51,9 @@ const NavBar = ({
               <li
                 className="nav"
                 key={menuItem.name}
-                onClick={() => selectNavHandler(menuItem.name)}
+                onClick={() => {
+                  selectNavHandler(menuItem.name);
+                }}
               >
                 {menuItem.name}
               </li>
@@ -87,7 +85,7 @@ const NavBar = ({
             </Link>
 
             <Link to="/">
-              <button onClick={logOut}>로그아웃</button>
+                <button onClick={() => { logoutHandler() }}>로그아웃</button>
             </Link>
           </div>
         )}

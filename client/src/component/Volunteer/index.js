@@ -3,19 +3,14 @@ import VolunteerList from "./VolunteerList";
 import { StyledVolunteer } from "./StyledVoluteer";
 
 const Volunteer = ({ postsData,  setPostId,}) => {
-  const [maxDogList, setMaxDogList] = useState(6);
+  const [maxDogList, setMaxDogList] = useState(8);
   const [slice, setSlice] = useState([]);
   const moreButtonHandler = () => {
-    setMaxDogList(maxDogList + 6);
+    setMaxDogList(maxDogList + 8);
     setSlice(postsData.slice(0, maxDogList));
   };
 
   useEffect(() => {
-window.scrollTo({
-  top: 940,
-  behavior: "smooth"
-});
-
     if (postsData) {
       setSlice(postsData.slice(0, maxDogList));
     } else {
@@ -23,6 +18,11 @@ window.scrollTo({
     }
   }, [maxDogList, postsData]);
   
+  useEffect(() => {
+    window.scrollTo({
+      top: 940,
+    });
+  })
   return (
     <StyledVolunteer>
       <VolunteerList 

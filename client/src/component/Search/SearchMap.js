@@ -10,8 +10,8 @@ function SearchMap({Keyword, dataSet}) {
 
   useEffect(() => {
     
-  console.log(Keyword)
-  console.log("타입1234",typeof(dataSet))
+  // console.log(Keyword)
+  // console.log("타입1234",typeof(dataSet))
   search(Keyword,dataSet)
   },[Keyword]);
 

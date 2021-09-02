@@ -24,7 +24,14 @@ function Modal({
           <hr></hr>
           <button 
           className = 'modal-btn' 
-                onClick={() => { modalSuccess === undefined ? closeModal() : modalSuccess===true ? window.location.replace('/') : history.go(-1) }}>
+                onClick={() => {
+                  modalSuccess === undefined
+                    ? closeModal()
+                    : modalSuccess === true
+                      ? window.history.go(-1)
+                      // ? window.location.replace('/')
+                      : history.go(-1)
+                }}>
           확인</button>
         </div>
       </div>
