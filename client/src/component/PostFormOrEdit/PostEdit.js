@@ -5,6 +5,7 @@ import axios from "axios";
 import useInput from '../../hooks/useInput';
 import { useHistory } from "react-router-dom";
 import Modal from "../Modal";
+let imageFile;
 
 const PostEdit = ({ postId, setPostId }) => {
   const [modalSuccess, setModalSuccess] = useState(false);
@@ -31,6 +32,9 @@ const PostEdit = ({ postId, setPostId }) => {
       }
     };
     reader.readAsDataURL(e.target.files[0]);
+    imageFile = e.target.files;
+    console.log(e.target.files);
+    setImage(e.target.files[0]);
     setImgCheck("true");
   };
 
@@ -54,7 +58,7 @@ const PostEdit = ({ postId, setPostId }) => {
                 userdata.append("category", category);
                 userdata.append("date", date);
                 userdata.append("location", location);
-                userdata.append("input-image", e.target[0].files[0]);
+                userdata.append("input-image", imageFile[0]);
                 userdata.append("imgCheck", imgCheck);
                 userdata.append("content", content);
                 userdata.append("mobile", mobile);
