@@ -46,7 +46,7 @@
         <br>
       </td>
       <td>
-        <strong>🏁 Full Stack</strong>
+        <strong>🏁 Frontend Stack</strong>
       </td>
     </tr>
       <td align="center">
@@ -58,7 +58,7 @@
         <br>
       </td>
       <td>
-        <strong>🚩 Frontend</strong>
+        <strong>🚩 Backend </strong>
       </td>
     </tr>
     <tr>
@@ -71,12 +71,13 @@
         <br>
       </td>
       <td>
-        <strong>🏁 Frontend</strong>
+        <strong>🏁 Backend </strong>
       </td>
     </tr>
     <tr>
   </tbody>
 </table>
+
 # For project details
 
 ### [checkout WIKI](https://github.com/codestates/BowWow/wiki)
