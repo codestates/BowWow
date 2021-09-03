@@ -177,8 +177,7 @@ function ViewPostComment({
         <Modal
           openModal={openModal}
           closeModal={closeModal}
-          modalSuccess={modalSuccess}
-          modalText="글쓰기 권한이 없습니다. 로그인해주세요" 
+          modalText="로그인이 필요합니다." 
         />
       ) : null}
       {modalSuccess ? (

@@ -8,6 +8,7 @@ import UserImgUpload from './UserImgUpload';
 import useInput from '../../hooks/useInput';
 import Modal from '../Modal'
 import axios from 'axios';
+let imageFile;
 
 const ProfileEdit = () => {
 
@@ -31,6 +32,8 @@ const ProfileEdit = () => {
       }
     };
     reader.readAsDataURL(e.target.files[0]);
+    imageFile = e.target.files;
+    console.log(e.target.files);
     setUserImage(e.target.files[0]);
     setImgCheck("true");
   };
@@ -74,7 +77,7 @@ const ProfileEdit = () => {
       userdata.append("nickname", nickname);
       userdata.append("introduce", introduce);
       userdata.append("password", password);
-      userdata.append("input-image", e.target[3].files[0]);
+      userdata.append("input-image", imageFile[0]);
       userdata.append("imgCheck", imgCheck);
 
       axios.get(`http://ec2-15-165-235-48.ap-northeast-2.compute.amazonaws.com/auth`,

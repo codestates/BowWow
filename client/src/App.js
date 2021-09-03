@@ -123,6 +123,7 @@ const closeModal = () => {
               setNavString={setNavString}
               isLogedIn={isLogedIn}
               setIsLogedIn={setIsLogedIn}
+              navString={navString}
             />
           </Route>
           <Route path="/postedit">
@@ -132,6 +133,7 @@ const closeModal = () => {
               setNavString={setNavString}
               postId={postId}
               isLogedIn={isLogedIn}
+              navString={navString}
             />
           </Route>
           <Route path="/profile">
@@ -140,6 +142,7 @@ const closeModal = () => {
               setPostsData={setPostsData}
               setNavString={setNavString}
               isLogedIn={isLogedIn}
+              navString={navString}
             />
           </Route>
           <Route path="/profileedit">
@@ -147,6 +150,7 @@ const closeModal = () => {
               logoutHandler={logoutHandler}
               setNavString={setNavString}
               isLogedIn={isLogedIn}
+              navString={navString}
             />
           </Route>
           <Route path="/posts">
@@ -155,6 +159,7 @@ const closeModal = () => {
               setNavString={setNavString}
               postId={postId}
               isLogedIn={isLogedIn}
+              navString={navString}
             />
           </Route>
           <Route path="/login">
@@ -162,6 +167,7 @@ const closeModal = () => {
               loginHandler={loginHandler}
               setNavString={setNavString}
               setIsLogedIn={setIsLogedIn}
+              navString={navString}
             />
           </Route>
           <Route path="/signup">

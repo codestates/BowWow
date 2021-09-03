@@ -36,9 +36,9 @@ const PostForm = () => {
       }
     };
     reader.readAsDataURL(e.target.files[0]);
-    imageFile = e.target.files[0]
+    imageFile = e.target.files
     console.log(e.target.files);
-    //setImage(e.target.files[0]);
+    setImage(e.target.files[0]);
     setImgCheck("true");
   };
   
