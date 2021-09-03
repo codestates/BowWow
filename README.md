@@ -46,7 +46,7 @@
         <br>
       </td>
       <td>
-        <strong>🏁 end Stack</strong>
+        <strong>🏁 Frontend</strong>
       </td>
     </tr>
       <td align="center">
