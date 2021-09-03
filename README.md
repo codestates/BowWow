@@ -84,4 +84,4 @@
 
 # 서비스 체험
 
-### [EteamMerge](https://eteammerge.ga/)
+### [EteamMerge](http://bowwow-resource.s3-website.ap-northeast-2.amazonaws.com)
