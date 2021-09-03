@@ -84,4 +84,4 @@
 
 # 서비스 체험
 
-### [EteamMerge] (https://eteammerge.ga/)
+### [EteamMerge](https://eteammerge.ga/)
