@@ -86,7 +86,7 @@
 
 ### [EteamMerge](https://eteammerge.ga/)
 - 게시물(사진)이 나오지 않는경우
-- https://eteammerge.ga/ 주소옆에 자물쇠를 클릭한다
+- https://eteammerge.shop/ 주소옆에 자물쇠를 클릭한다
 - 사이트설정을 클릭한다
 - 중간정도에 안전하지 않은 콘텐츠 허용으로 설정변경
 - 사이트 재접속 또는 새로고침.
